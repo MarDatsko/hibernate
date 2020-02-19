@@ -6,7 +6,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
@@ -25,6 +24,10 @@ public class Author {
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Book> books;
+
+    public Author (String name){
+        this.authorName = name;
+    }
 }
 
 

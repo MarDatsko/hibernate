@@ -1,8 +1,6 @@
 package com.homework.library;
 
-import com.homework.library.entity.User;
-import com.homework.library.service.UserService;
-import com.homework.library.service.UserServiceImpl;
+import com.homework.library.logic.Executor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
@@ -11,7 +9,7 @@ public class Main {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
-        context.getBean("executor", Executor.class).run();
+        context.getBean("executor", Executor.class).fillDatabase();
         System.out.println(context.getBeanDefinitionCount());
     }
 }

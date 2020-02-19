@@ -2,9 +2,7 @@ package com.homework.library.service;
 
 import com.homework.library.entity.Author;
 import com.homework.library.repos.AuthorRepo;
-import com.homework.library.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

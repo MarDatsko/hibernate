@@ -23,13 +23,15 @@ public class Book {
     @Column(name = "genre")
     private String genre;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "author_book",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    @ManyToMany(mappedBy = "books",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Author> author;
 
-   /* @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "owner_id")
-    private User owner;*/
+    private User owner;
+
+    public Book(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
 }

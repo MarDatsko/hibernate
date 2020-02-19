@@ -22,6 +22,10 @@ public class User {
     @Column(name = "userNAme")
     private String userName;
 
-    /*@OneToMany(mappedBy = "owner")
-    private Set<Book> books;*/
+    @OneToMany(mappedBy = "owner")
+    private Set<Book> setBook;
+
+    public User(String userName) {
+        this.userName = userName;
+    }
 }

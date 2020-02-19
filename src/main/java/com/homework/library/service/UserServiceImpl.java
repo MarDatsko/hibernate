@@ -3,8 +3,6 @@ package com.homework.library.service;
 import com.homework.library.entity.User;
 import com.homework.library.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +15,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepo userRepo;
-
 
     @Override
     public List<User> getAll() {
@@ -40,5 +37,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(Long id) {
         userRepo.deleteById(id);
+    }
+
+    @Override
+    public User getByUserName(String name){
+       return userRepo.findByUserName(name);
     }
 }

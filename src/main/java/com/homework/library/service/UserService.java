@@ -1,9 +1,7 @@
 package com.homework.library.service;
 
 import com.homework.library.entity.User;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -17,4 +15,6 @@ public interface UserService {
     User saveOrUpdate(User product);
 
     void delete(Long id);
+
+    User getByUserName(String name);
 }
