@@ -16,10 +16,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
+import java.util.Scanner;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.homework.library" })
+@ComponentScan({"com.homework.library"})
 @EnableJpaRepositories(basePackages = "com.homework.library.repos")
 public class JavaConfig {
 
@@ -27,7 +28,10 @@ public class JavaConfig {
         super();
     }
 
-    // beans
+    @Bean
+    public Scanner scanner() {
+        return new Scanner(System.in);
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -67,11 +71,10 @@ public class JavaConfig {
 
     final Properties additionalProperties() {
         final Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
         hibernateProperties.setProperty("hibernate.format_sql", "true");
-
 
         return hibernateProperties;
     }

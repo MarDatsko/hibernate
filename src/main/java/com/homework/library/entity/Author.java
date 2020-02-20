@@ -1,6 +1,7 @@
 package com.homework.library.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class Author {
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Book> books;
 
-    public Author (String name){
+    public Author(String name) {
         this.authorName = name;
     }
 }

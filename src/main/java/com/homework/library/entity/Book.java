@@ -1,6 +1,7 @@
 package com.homework.library.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class Book {
     @Column(name = "genre")
     private String genre;
 
-    @ManyToMany(mappedBy = "books",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Author> author;
 
     @ManyToOne

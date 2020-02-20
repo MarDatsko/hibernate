@@ -10,6 +10,5 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
         context.getBean("executor", Executor.class).fillDatabase();
-        System.out.println(context.getBeanDefinitionCount());
     }
 }

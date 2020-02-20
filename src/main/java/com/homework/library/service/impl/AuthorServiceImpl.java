@@ -1,12 +1,14 @@
-package com.homework.library.service;
+package com.homework.library.service.impl;
 
 import com.homework.library.entity.Author;
 import com.homework.library.repos.AuthorRepo;
+import com.homework.library.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -18,9 +20,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<Author> getAll() {
-        List<Author> authors = new ArrayList<>();
-        authorRepo.findAll().forEach(authors::add);
-        return authors;
+        return new ArrayList<>(authorRepo.findAll());
     }
 
     @Override
@@ -37,5 +37,15 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void delete(Long id) {
         authorRepo.deleteById(id);
+    }
+
+    @Override
+    public Author findByAuthorName(String authorName) {
+        return authorRepo.findByAuthorName(authorName);
+    }
+
+    @Override
+    public Collection<String> getAllAuthor() {
+        return new ArrayList<>(authorRepo.getAllAuthor());
     }
 }

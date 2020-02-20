@@ -1,7 +1,8 @@
-package com.homework.library.service;
+package com.homework.library.service.impl;
 
 import com.homework.library.entity.User;
 import com.homework.library.repos.UserRepo;
+import com.homework.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,9 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        List<User> users = new ArrayList<>();
-        userRepo.findAll().forEach(users::add);
-        return users;
+        return new ArrayList<>(userRepo.findAll());
     }
 
     @Override
@@ -40,7 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByUserName(String name){
-       return userRepo.findByUserName(name);
+    public User getByUserName(String name) {
+        return userRepo.findByUserName(name);
     }
+
 }
